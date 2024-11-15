@@ -5,6 +5,8 @@
  * Source: https://cp-algorithms.com/graph/dinic.html
  * Description: Flow algorithm with complexity $O(VE\log U)$ where $U = \max |\text{cap}|$.
  * $O(\min(E^{1/2}, V^{2/3})E)$ if $U = 1$; $O(\sqrt{V}E)$ for bipartite matching.
+ * From Edmonds-Karp: To get edge flow values, compare
+ * capacities before and after, and take the positive values only.
  * Status: Tested on SPOJ FASTFLOW and SPOJ MATCHING, stress-tested
  */
 #pragma once
