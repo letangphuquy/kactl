@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1731680739.52543 "e:/Algo/Templates/kactl/content/kactl.tex" "kactl.pdf" "kactl" 1731680740.94381 2
+["pdflatex"] 1733977744.27102 "e:/Algo/Templates/kactl/content/kactl.tex" "kactl.pdf" "kactl" 1733977745.85857 2
   "C:/Users/letan/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1731680289 105669 a0ec7b068ccfb1015870ffd7b819543d ""
   "C:/Users/letan/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1708068685 24210828 b52d5476701436df2eb144f70af197ac ""
   "C:/Users/letan/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmbx12.tfm" 1136765053 1324 c910af8c371558dc20f2d7822f66fe64 ""
@@ -60,11 +60,11 @@
   "C:/Users/letan/AppData/Local/Programs/MiKTeX/tex/latex/ulem/ulem.sty" 1578651445 15682 94f55b803e160cf7fb6e4d77d07cfe1d ""
   "C:/Users/letan/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1700127522 55487 80a65caedd3722f4c20a14a69e785d8f ""
   "content/contest/chapter.tex" 0 -1 0 ""
-  "e:/Algo/Templates/kactl/content/kactl.tex" 1731680736 1195 9ea054483a3a020d21743f77e79b9167 ""
-  "kactl.aux" 1731680740 8 a94a2480d3289e625eea47cd1b285758 "pdflatex"
-  "kactl.tex" 1731680736 1195 9ea054483a3a020d21743f77e79b9167 ""
-  "kactl.toc" 1731680740 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "kactlpkg.sty" 1731680235 9867 45933d0ee1e656ee5db50f69425a1547 ""
+  "e:/Algo/Templates/kactl/content/kactl.tex" 1733977740 1224 8cb7c2a4f63deccd636b58b59e8682dd ""
+  "kactl.aux" 1733977745 8 a94a2480d3289e625eea47cd1b285758 "pdflatex"
+  "kactl.tex" 1733977740 1224 8cb7c2a4f63deccd636b58b59e8682dd ""
+  "kactl.toc" 1733977745 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "kactlpkg.sty" 1731683245 9865 1234a9517181f4eeed3d8943aeeccdbd ""
   "vku" 0 -1 0 ""
   (generated)
   "kactl.aux"

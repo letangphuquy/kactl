@@ -1,0 +1,98 @@
+% Greedy algorithm
+% Scheduling
+% Max contiguous subvector sum
+% Invariants
+% Huffman encoding
+
+\chapter{Dynamic Programming and Greedy}
+
+\section{Greedy}
+    \begin{itemize}
+        \item Scheduling
+        \item Huffman encoding: To create a codework with minimum expected length given set of symbols. 
+        Algorithm: repeatedly merge 2 nodes with lowest weight (frequency). Parent weight equals sum weights of its 2 children
+        \item Sorting, or comparator
+    \end{itemize}
+    \subsection{One machine}
+        This task is about finding an optimal schedule for $n$ jobs on a single machine, 
+        if the job $i$ can be processed in $t_i$ time, 
+        but for the $t$ seconds waiting before processing the job a penalty of $f_i(t)$ has to be paid.
+
+        The Livshits-Kladov theorem establishes that the permutation method is only applicable for these mentioned three cases, i.e.:
+
+        - Linear case: $f_i(t) = c_i(t) + d_i$, where $c_i$ are non-negative constants,
+        - Exponential case: $f_i(t) = c_i \cdot e_{\alpha \cdot t} + d_i$, where $c_i$ and $\alpha$ are positive constants,
+        - Identical case: $f_i(t) = \phi(t)$, where $\phi$ is a monotone increasing function.
+
+        Optimal schedule for each case can be obtained by
+        \begin{itemize}
+            \item Linear: sorting the jobs by the fraction $\frac{c_i}{t_i}$ in non-ascending order.
+            \item Exponential, sort $v_i = \frac{1 - e^{\alpha \cdot t_i}}{c_i}$ non-ascending
+            \item Identical, sort non-DESCcending processing time $t_i$
+        \end{itemize}
+
+    \subsection{Two machine (Johnson)}
+
+        This task is about finding an optimal schedule for $n$ jobs on two machines.
+        Every item must first be processed on the first machine, and afterwards on the second one.
+        The $i$-th job takes $a_i$ time on the first machine, and $b_i$ time on the second machine.
+        Each machine can only process one job at a time.
+    
+        Note first, that we can assume that the order of jobs for the first and the second machine have to coincide.
+        In fact, since the jobs for the second machine become available after processing them at the first, and if there are several jobs available for the second machine, than the processing time will be equal to the sum of their $b_i$, regardless of their order.
+        Therefore it is only advantageous to send the jobs to the second machine in the same order as we sent them to the first machine.
+    
+        We denote by $x_i$ the **idle time** of the second machine immediately before processing $i$.
+        Our goal is to **minimize the total idle time**: $F(x) = \sum x_i ~ \rightarrow \min$
+
+        For the first job we have $x_1 = a_1$.
+        For the second job, since it gets sent to the machine at the time $a_1 + a_2$, and the second machine gets free at $x_1 + b_1$, we have $x_2 = \max\left((a_1 + a_2) - (x_1 + b_1), 0\right)$.
+        In general we get the equation:
+    
+        $x_k = \max\left(\sum_{i=1}^k a_i - \sum_{i=1}^{k-1} b_i - \sum_{i=1}^{k-1} x_i, 0 \right)$
+    
+        We can now calculate the **total idle time** $F(x)$.
+        It is claimed that it has the form
+            $F(x) = \max_{k=1 \dots n} K_i,$
+        where
+        $K_i = \sum_{i=1}^k a_i - \sum_{i=1}^{k-1} b_i.$
+    
+        Now use the \textbf{permutation method}: $\min(a_j, b_{j+1}) \le \min(b_j, a_{j+1})$
+        We obtained a \textbf{comparator}:
+        by sorting the jobs on it, we obtain an optimal order of the jobs, in which no two jobs can be switched with an improvement of the final time.
+        However, \dots Thus we can sort the jobs by $\min(a_i, b_i)$, and if the processing time of the current job on the first machine is less then the processing time on the second machine, then this job must be done before all the remaining jobs, and otherwise after all remaining tasks.
+        \kactlimport{johnson.h}
+
+
+\section{DP Optimization}
+    \begin{itemize}
+        \item Dynamic programming
+        \item Knapsack
+        \item Coin change
+        \item Longest common subsequence
+        \item Longest increasing subsequence
+        \item Number of paths in a dag
+        \item Shortest path in a dag
+        \item Dynprog over intervals
+        \item Dynprog over subsets
+        \item Dynprog over probabilities
+        \item Dynprog over trees
+        \item 3^n set cover
+        \item Divide and conquer
+        \item Knuth optimization
+        \item \textbf{Convex hull optimizations} in \texttt{lineContainer.h}
+        \item RMQ (sparse table a.k.a 2^k-jumps)
+        \item Bitonic cycle
+        \item Log partitioning (loop over most restricted)
+    \end{itemize}
+
+    \kactlimport{FastKnapsack.h}
+    \kactlimport{KnuthDP.h}
+    \kactlimport{DivideAndConquerDP.h}
+    \subsection{Bitmask, S.O.S.}
+        \begin{itemize}
+            \item \verb@x & -x@ is the least bit in \texttt{x}.
+            \item \verb@for (int x = m; x; ) { --x &= m; ... }@ loops over all subset masks of \texttt{m} (except \texttt{m} itself).
+            \item \verb@c = x&-x, r = x+c; (((r^x) >> 2)/c) | r@ is the next number after \texttt{x} with the same number of bits set.
+            \item \verb@rep(b,0,K) rep(i,0,(1 << K))@ \\ \verb@  if (i & 1 << b) D[i] += D[i^(1 << b)];@ computes all sums of subsets.
+        \end{itemize}
